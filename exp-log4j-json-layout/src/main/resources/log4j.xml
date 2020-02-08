@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="null" threshold="null">
+    <appender name="AllFileAppender" class="uk.org.simonsite.log4j.appender.TimeAndSizeRollingAppender">
+        <param name="File" value="./logs/apps/all.log"/>
+        <param name="DatePattern" value=".yyyy-MM-dd"/>
+        <!-- max file sizeis the same as the old one -->
+        <param name="MaxFileSize" value="104857600"/>
+        <!-- force roll on date change -->
+        <param name="DateRollEnforced" value="true"/>
+        <!-- because we roll every day, we need more files -->
+        <param name="MaxRollFileCount" value="50"/>
+        <param name="BufferedIO" value="false"/>
+        <!-- same compression as before -->
+        <param name="CompressionAlgorithm" value="GZ"/>
+        <param name="CompressionMinQueueSize" value="1"/>
+
+        <layout class="net.logstash.log4j.JSONEventLayoutV1"/>
+    </appender>
+
+
+    <logger name="com.joy" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="AllFileAppender"/>
+    </logger>
+    <root>
+        <level value="ERROR"/>
+        <appender-ref ref="AllFileAppender"/>
+    </root>
+
+</log4j:configuration>

@@ -15,6 +15,7 @@
         <module>exp-slf4j-log4j2-json-layout</module>
         <module>exp-log4j-slf4j-log4j2</module>
         <module>exp-jcl-slf4j-log4j2</module>
+        <module>exp-log4j-json-layout</module>
     </modules>
 </project>
 
