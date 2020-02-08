@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+    <Properties>
+        <Property name="log-path">./logs</Property>
+    </Properties>
+    <Appenders>
+        <RollingRandomAccessFile name="business-log" fileName="${log-path}/business.log" immediateFlush="false"
+                                 filePattern="${log-path}/business.log.%d{yyyyMMddHH}">
+            <PatternLayout>
+                <pattern>[%5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%F:%L] %m %n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="error-log" fileName="${log-path}/error.log" immediateFlush="false"
+                                 filePattern="${log-path}/error.log.%d{yyyyMMddHH}">
+            <PatternLayout>
+                <pattern>[%5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%F:%L] %m %n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <AsyncLogger name="com.joy" level="info" includeLocation="true">
+            <AppenderRef ref="business-log"/>
+        </AsyncLogger>
+        <AsyncRoot level="error" includeLocation="true">
+            <AppenderRef ref="error-log" level="error"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>

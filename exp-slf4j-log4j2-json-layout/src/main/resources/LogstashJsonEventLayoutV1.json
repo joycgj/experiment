@@ -1,0 +1,16 @@
+{
+  "time": "${json:timestamp}",
+  "mdc": "${json:mdc}",
+  "exception": {
+    "exception_class": "${json:exception:className}",
+    "exception_message": "${json:exception:message}",
+    "stacktrace": "${json:exception:stackTrace:text}"
+  },
+  "line": "${json:source:lineNumber}",
+  "class": "${json:source:className}",
+  "host": "${hostName}",
+  "message": "${json:message}",
+  "thread": "${json:thread:name}",
+  "level": "${json:level}",
+  "method": "${json:source:methodName}"
+}
