@@ -2,28 +2,20 @@
 <Configuration status="INFO">
     <Appenders>
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
-            <Filters>
-                <RegexFilter regex=".*test.*" onMatch="DENY"/>
-                <RegexFilter regex=".*hi.*" onMatch="DENY"/>
-            </Filters>
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
         <File name="FileAppender" fileName="logs/exp-log-frame.log">
-            <Filters>
-                <RegexFilter regex=".*test.*" onMatch="DENY"/>
-                <RegexFilter regex=".*hi.*" onMatch="DENY"/>
-            </Filters>
             <PatternLayout>
                 <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
             </PatternLayout>
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.joy" level="info" additivity="false">
+        <Logger name="com.joy" level="debug" additivity="false">
             <AppenderRef ref="FileAppender"/>
             <AppenderRef ref="ConsoleAppender"/>
         </Logger>
-        <Root level="info">
+        <Root level="error">
             <AppenderRef ref="FileAppender"/>
             <AppenderRef ref="ConsoleAppender"/>
         </Root>
