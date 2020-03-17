@@ -16,6 +16,9 @@
         <module>exp-log4j-slf4j-log4j2</module>
         <module>exp-jcl-slf4j-log4j2</module>
         <module>exp-log4j-json-layout</module>
+        <module>exp-slf4j-log4j2-programmatically</module>
+        <module>test-mockito</module>
+        <module>test-mockito-lesson03</module>
     </modules>
 </project>
 
